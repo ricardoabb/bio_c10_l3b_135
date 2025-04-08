@@ -98,7 +98,7 @@ export function TextBox({ content = "", title, image, bgColor, textColor, images
         content && (
           <div id="box-container" className={`px-5 py-7 bg-gradient-to-r from-sand-300 to-sand-100 rounded-2xl mt-5 ${bgColor ? bgColor : 'bg-[#fff]'}`}>
             <div className={`h-52 md:h-24 text-base ${textColor ? textColor : 'text-[#BB7843]'} font-medium`}>
-              <AnimatedText text={content} limit={170} />
+              <AnimatedText text={content} limit={180} />
             </div>
               {link && (
                 <a className="text-[#776CA9] font-bold hover:text-[#E5985E] transition-colors ease-in-out duration-300" href={link} target="_blank" rel="noreferrer">Saiba Mais +</a>

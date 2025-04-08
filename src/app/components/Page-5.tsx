@@ -37,7 +37,7 @@ export default function Page5() {
           <DnaIcon className='w-fit h-auto ' />
         </div>
 
-      <ButtonRollDown target='page-1' rotate />
+      <ButtonRollDown target='page-1' id='1' rotate />
     </section >
   );
 }
