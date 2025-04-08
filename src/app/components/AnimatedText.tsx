@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 
 import iconRight from '../assets/icon-down.png';
+import iconRightSoft from '../assets/icon-down-soft.png';
 import { useMapStore } from "../store/useMapStore";
 
 
@@ -123,7 +124,7 @@ export function AnimatedText({ text, limit = 140, delay = 5 }: TextBoxProps) {
 
           <div className={`${displayBtnNext} flex items-center justify-center gap-2`}>
             <a onClick={handlerBack} className={`${displayBtn} cursor-pointer animate-fade-in-out`}>voltar</a><div className={`absolute w-12 py-3 right-[-.2rem] bottom-[-3.5rem] none cursor-pointer ${animationNextBtn}  `}>
-              <a onClick={handlerLoadText}><Image width={100} height={100} src={iconRight} alt="carregar restante do texto..." /></a>
+              <a onClick={handlerLoadText}><Image width={100} height={100} src={currentId === "1" ? iconRight : iconRightSoft} alt="carregar restante do texto..." /></a>
             </div>
           </div>
 
