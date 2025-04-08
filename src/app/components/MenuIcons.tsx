@@ -36,13 +36,13 @@ export default function MenuIcons() {
   return (
     <section id="menu" className="relative flex w-full h-screen">
       <nav className={`flex flex-col w-full md:flex-row items-center justify-center md:items-center gap-24`}>
-        <div onClick={() => handleLink('page-2', "2")} className={`animate-pulse hover:animate-bounce-slow`}>
+        <div onClick={() => handleLink('page-2', "2")} className={`animate-pulse hover:animate-bounce-slow cursor-pointer`}>
           <MenuIcon1 className=' w-auto h-fit ' />
         </div>
-        <div onClick={() => handleLink('page-3', "9")} className={`animate-pulse hover:animate-bounce-slow`}>
+        <div onClick={() => handleLink('page-3', "9")} className={`animate-pulse hover:animate-bounce-slow cursor-pointer`}>
           <MenuIcon2 className=' w-auto h-fit ' />
         </div>
-        <div onClick={() => handleLink('page-4', "12")} className={`animate-pulse hover:animate-bounce-slow`}>
+        <div onClick={() => handleLink('page-4', "12")} className={`animate-pulse hover:animate-bounce-slow cursor-pointer`}>
           <MenuIcon3 className=' w-auto h-fit ' />
         </div>
 
