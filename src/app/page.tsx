@@ -39,6 +39,10 @@ export default function Info() {
     const [loading, setLoading] = useState(true);
     const [activeIndex, setActiveIndex] = useState(0);
 
+
+    const [offset, setOffset] = useState(0);
+    const [scrollOffset, setScrollOffset] = useState(0);
+
     const sliderRef = useRef<any>(null);
     const prevRef = useRef(null);
     const nextRef = useRef(null);
@@ -121,6 +125,43 @@ export default function Info() {
     }
 
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const docHeight = document.body.scrollHeight;
+
+            // Calcula a porcentagem da rolagem
+            const scrollPercent = scrollY / (docHeight - windowHeight);
+
+            // Converte a porcentagem em uma posição dentro da viewport (em pixels)
+            const position = scrollPercent * (windowHeight - 100); // 100px é a altura do elemento
+
+            setOffset(position);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const docHeight = document.body.scrollHeight;
+
+            const scrollPercent = scrollY / (docHeight - windowHeight);
+
+            const movableRange = windowHeight - 100; // 100px = altura dos elementos
+
+            setScrollOffset(scrollPercent * movableRange);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
 
 
     return (
@@ -133,10 +174,20 @@ export default function Info() {
                 <Page4 />
                 <Page5 />
 
-                <div id="bg-right" className="fixed -translate-y-1/2  top-1/2 right-0 z-0 ">
+                <div id="bg-right"
+                    className="fixed right-0 z-0"
+                    style={{
+                        top: `${offset}px`,
+                        transition: "top 0.1s ease-out",
+                    }}>
                     <BgRight />
                 </div>
-                <div id="bg-right" className="fixed -translate-y-1/2  top-1/2 left-0 z-0 ">
+                <div id="bg-right"
+                    className="fixed left-0 z-0"
+                    style={{
+                        top: `${window.innerHeight - 100 - scrollOffset}px`,
+                        transition: "top 0.1s ease-out",
+                    }}>
                     <BgLeft />
                 </div>
             </div>
