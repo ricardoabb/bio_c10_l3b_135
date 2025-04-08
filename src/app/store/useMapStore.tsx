@@ -48,7 +48,7 @@ export const useMapStore = create<MapStore>((set) => ({
     content:'O desemprego no Brasil está aumentando ou diminuindo? Como podemos saber? Será que basta olhar para os números ou precisamos interpretar essas informações?\nPara entender essa questão, é essencial analisar os dados e refletir sobre o que eles realmente significam no dia a dia das pessoas. Mas como podemos tornar esses dados mais fáceis de compreender?\nRepresentações como tabelas e gráficos nos ajudam a visualizar as informações de forma mais objetiva e comparativa. Vamos juntos explorar como esses recursos podem nos ajudar a interpretar melhor a realidade!',
     image1: '',
     link: '',
-    isOpen: true,
+    isOpen: false,
     readedInfo:['0'],
     openModal: (params) => {
         set({ title: params.title, content: params.content, image1: params.image1, link: params.link, isOpen: true });

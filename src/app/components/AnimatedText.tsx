@@ -83,32 +83,31 @@ export function AnimatedText({ text, limit = 140, delay = 5 }: TextBoxProps) {
   }
 
   function TextWithHighlights({ text }: { text: string }): JSX.Element {
-    const phrasesToHighlight: string[] = [
-      'colunas', 'cabeçalho', 'linhas', 'gráficos', 'eixos', 'x', 'y', 'rótulos', 'gráfico',  
-    ];
-    const phrasesToItalic: string[] = [
-      'Papa Urbano II discursando no Concílio de Clermont'
-    ];
+    const phrasesToHighlight = ['CRISPR/Cas9', 'CRISPR'];
+    const phrasesToItalic = ['Papa Urbano II discursando no Concílio de Clermont'];
   
-    // Ordenar as frases para evitar conflito de palavras curtas dentro de frases mais longas
-    const sortedPhrasesToHighlight = phrasesToHighlight.sort((a, b) => b.length - a.length);
-    const sortedPhrasesToItalic = phrasesToItalic.sort((a, b) => b.length - a.length);
+    const sortedHighlights = [...phrasesToHighlight].sort((a, b) => b.length - a.length);
+    const sortedItalics = [...phrasesToItalic].sort((a, b) => b.length - a.length);
   
-    const regexHighlight = new RegExp(`(${sortedPhrasesToHighlight.join('|')})`, 'gi');
-    const regexItalic = new RegExp(`(${sortedPhrasesToItalic.join('|')})`, 'gi');
+    const allPhrases = [...sortedHighlights, ...sortedItalics].join('|');
+    const regex = new RegExp(`(${allPhrases})`, 'gi');
   
-    // Substitui as frases encontradas por uma versão com tag <strong> ou <em>
-    const highlightedText = text.split(/(\b)/).map((part, index) => {
-      if (sortedPhrasesToHighlight.some(phrase => phrase.toLowerCase() === part.toLowerCase())) {
-        return <strong key={`highlight-${index}`}>{part}</strong>;
-      }
-      if (sortedPhrasesToItalic.some(phrase => phrase.toLowerCase() === part.toLowerCase())) {
-        return <em key={`italic-${index}`}>{part}</em>;
-      }
-      return part;
+    const parts = text.split(regex).filter(Boolean); // remove strings vazias
+  
+    const rendered = parts.map((part, i) => {
+      const matchHighlight = sortedHighlights.find(p => p.toLowerCase() === part.toLowerCase());
+      const matchItalic = sortedItalics.find(p => p.toLowerCase() === part.toLowerCase());
+  
+      if (matchHighlight) return <strong key={i}>{part}</strong>;
+      if (matchItalic) return <em key={i}>{part}</em>;
+      return <span key={i}>{part}</span>;
     });
   
-    return <p className="text-[1rem] font-bold whitespace-pre-wrap select-none">{highlightedText}</p>;
+    return (
+      <p className="text-[1rem] font-bold whitespace-pre-wrap select-none">
+        {rendered}
+      </p>
+    );
   }
 
   return (

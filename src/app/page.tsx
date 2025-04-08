@@ -3,6 +3,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useMapStore } from './store/useMapStore';
 import Home from './components/Layout';
 import { TextBox } from './components/TextBox';
+import BgRight from './assets/bg-right.svg';
+import BgLeft from './assets/bg-left.svg';
 
 // Swiper
 import { Navigation, A11y } from 'swiper/modules';
@@ -25,6 +27,10 @@ import Chart3 from './components/Chart-3';
 import Chart4 from './components/Chart-4';
 import Chart5 from './components/Chart-5';
 import Page2 from './components/Page-2';
+import Page3 from './components/Page-3';
+import MenuIcons from './components/MenuIcons';
+import Page4 from './components/Page-4';
+import Page5 from './components/Page-5';
 
 export default function Info() {
 
@@ -49,76 +55,37 @@ export default function Info() {
 
 
     useEffect(() => {
-        if (sliderRef.current && sliderRef.current.swiper) {
-            const swiper = sliderRef.current.swiper;
-            setActiveIndex(swiper.activeIndex);
-            setCurrentSlide(swiper.activeIndex);
-            setReadedInfo([])
-            if (swiper.activeIndex === 0) {
-                setCurrentId("1", false);
-                info.map((item, index) => {
-                    if (item.id === 1) {
-                        openModal({
-                            title: item.title,
-                            content: item.content,
-                            image1: item.image,
-                            tapeColor: 'tapeColor',
-                            bgColor: 'bgColor',
-
-                        })
-                    }
-                })
-            } else if (swiper.activeIndex === 1) {
-                setCurrentId("6", false);
-                info.map((item, index) => {
-                    if (item.id === 6) {
-                        openModal({
-                            title: item.title,
-                            content: item.content,
-                            image1: item.image,
-                            tapeColor: 'tapeColor',
-                            bgColor: 'bgColor',
-
-                        })
-                    }
-                })
+        if (currentId === "2") {
+            const target = document.getElementById('page-2');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
             }
-            else if (swiper.activeIndex === 2) {
-                setShowQuestion(true);
-                setCurrentId("13", false);
-                info.map((item, index) => {
-                    if (item.id === 13) {
-                        openModal({
-                            title: item.title,
-                            content: item.content,
-                            image1: item.image,
-                            link: item.link,
-                            tapeColor: 'tapeColor',
-                            bgColor: 'bgColor',
+            // info.map((item, index) => {
+            //     if (item.id === 2) {
+            //         openModal({
+            //             title: item.title,
+            //             content: item.content,
+            //             image1: item.image,
+            //             tapeColor: 'tapeColor',
+            //             bgColor: 'bgColor',
 
-                        })
-                    }
-                })
+            //         })
+            //     }
+            // })
+        } else if (currentId === "9") {
+            const target = document.getElementById('page-3');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
             }
-            else if (swiper.activeIndex === 3) {
-                setCurrentId("15", false);
-                info.map((item, index) => {
-                    if (item.id === 16) {
-                        openModal({
-                            title: item.title,
-                            content: item.content,
-                            image1: item.image,
-                            link: item.link,
-                            tapeColor: 'tapeColor',
-                            bgColor: 'bgColor',
 
-                        })
-                    }
-                })
+        } else if (currentId === "12") {
+            const target = document.getElementById('page-4');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
             }
 
         }
-    }, [activeIndex]);
+    }, [currentId]);
 
     useEffect(() => {
         if (['3', '4', '5'].every(id => readedInfo.includes(id))) {
@@ -160,7 +127,18 @@ export default function Info() {
         <Home>
             <div className='relative flex-col justify-center items-center md:mt-0'>
                 <Page1 />
+                <MenuIcons />
                 <Page2 />
+                <Page3 />
+                <Page4 />
+                <Page5 />
+
+                <div id="bg-right" className="fixed -translate-y-1/2  top-1/2 right-0 z-0 ">
+                    <BgRight />
+                </div>
+                <div id="bg-right" className="fixed -translate-y-1/2  top-1/2 left-0 z-0 ">
+                    <BgLeft />
+                </div>
             </div>
         </Home>
     );

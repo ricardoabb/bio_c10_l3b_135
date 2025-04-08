@@ -97,7 +97,7 @@ export function TextBox({ content = "", title, image, bgColor, textColor, images
       {
         content && (
           <div id="box-container" className={`px-5 py-7 bg-gradient-to-r from-sand-300 to-sand-100 rounded-2xl mt-5 ${bgColor ? bgColor : 'bg-[#fff]'}`}>
-            <div className={`h-40 md:h-24 text-base ${textColor ? textColor : 'text-[#BB7843]'} font-medium`}>
+            <div className={`h-52 md:h-24 text-base ${textColor ? textColor : 'text-[#BB7843]'} font-medium`}>
               <AnimatedText text={content} limit={170} />
             </div>
               {link && (

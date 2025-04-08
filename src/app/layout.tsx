@@ -15,10 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="mobile-web-app-capable" content="yes"/>
-      <body className={`${nunito.className} overflow-x-hidden`}>{children}       
+      <meta name="mobile-web-app-capable" content="yes" />
+      <body className={`${nunito.className} overflow-x-hidden`}>{children}
+
       </body>
     </html>
   );

@@ -21,8 +21,8 @@ const config: Config = {
           "50%": { opacity: "1" },
         },
         "color-pulse": {
-          "0%, 100%": { fill: "#EC644E" },
-          "50%": { fill: "#6B2055" },
+          "0%, 100%": { fill: "#F196A4" },
+          "50%": { fill: "#484D99" },
         },
         "color-pulse-white": {
           "0%, 100%": { fill: "#EC644E" },
