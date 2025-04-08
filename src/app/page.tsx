@@ -42,6 +42,7 @@ export default function Info() {
 
     const [offset, setOffset] = useState(0);
     const [scrollOffset, setScrollOffset] = useState(0);
+    const [innerHeight, setInnerHeight] = useState<number | null>(null);
 
     const sliderRef = useRef<any>(null);
     const prevRef = useRef(null);
@@ -145,6 +146,7 @@ export default function Info() {
     }, []);
 
     useEffect(() => {
+        setInnerHeight(window.innerHeight);
         const handleScroll = () => {
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
@@ -161,8 +163,7 @@ export default function Info() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-
-
+    if (innerHeight === null) return null;
 
     return (
         <Home>
