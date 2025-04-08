@@ -75,7 +75,7 @@ export const info = [
     {
         id: 10,
         title: '',
-        content: 'CRISPR/Cas9: consiste em duas moléculas. Cas9: enzima (endonuclease) capaz de identificar e agir como um par de “tesouras” que pode cortar as duas fitas do DNA em um local específico no genoma; e RNA guia (gRNA): pequena sequência de RNA (com cerca de 20 bases de comprimento) localizada dentro de uma estrutura de RNA mais longa.\ncomo elas atuam? A molécula de RNA “guia” a Cas9 para a parte do genoma que deverá ser cortada.',
+        content: 'CRISPR/Cas9: consiste em duas moléculas. Cas9: enzima (endonuclease) capaz de identificar e agir como um par de “tesouras” que pode cortar as duas fitas do DNA em um local específico no genoma; e RNA guia (gRNA): pequena sequência de RNA (com cerca de 20 bases de comprimento) localizada dentro de uma estrutura de RNA mais longa.\nComo elas atuam? A molécula de RNA “guia” a Cas9 para a parte do genoma que deverá ser cortada.',
         image: "",
         imageSubtitle: "",
     },
