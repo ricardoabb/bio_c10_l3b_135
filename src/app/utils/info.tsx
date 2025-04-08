@@ -114,7 +114,7 @@ export const info = [
     {
         id: 15,
         title: '',
-        content: ' Problemas da transgenia: preocupação com problemas de saúde como alergias, resistência aos antibióticos, maior quantidade de resíduos de agrotóxicos e ambientais como ameaça à biodiversidade.',
+        content: 'Problemas da transgenia: preocupação com problemas de saúde como alergias, resistência aos antibióticos, maior quantidade de resíduos de agrotóxicos e ambientais como ameaça à biodiversidade.',
         link: "",
         image: "",
         imageSubtitle: "",
