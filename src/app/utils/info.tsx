@@ -29,7 +29,7 @@ export const info = [
     {
         id: 4,
         title: '',
-        content: 'Nos vetores virais (retrovírus, lentivírus ou os adenovírus) são usados vírus que podem ser manipulados geneticamente para reduzir a patogenicidade ou os vírus não patogênicos.',
+        content: 'Nos vetores virais (retrovírus, lentivírus ou adenovírus) são usados vírus que podem ser manipulados geneticamente para reduzir a patogenicidade ou os vírus não patogênicos.',
         image: "",
         imageSubtitle: "",
     },
@@ -51,7 +51,7 @@ export const info = [
     {
         id: 7,
         title: '',
-        content: 'Os vetores não virais, geralmente, são moléculas de DNA (plasmídeo) que contém o transgene terapêutico.',
+        content: 'Os vetores não virais, geralmente, são moléculas de DNA (plasmídeo) que contêm o transgene terapêutico.',
         image: "",
         imageSubtitle: "",
     },
